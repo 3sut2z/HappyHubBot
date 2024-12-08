@@ -2,8 +2,8 @@ name: Run Discord Bot
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
-  workflow_dispatch:        
+    - cron: "0 */6 * * *"  # Tự động chạy mỗi 6 giờ
+  workflow_dispatch:         # Cho phép kích hoạt thủ công
 
 jobs:
   run-bot:
@@ -25,5 +25,5 @@ jobs:
 
     - name: Run Discord bot
       env:
-        HAPPYHUBBOT: ${{ secrets.TOKEN }}
+        TOKEN: ${{ secrets.TOKEN }}  # Truyền secret vào biến môi trường TOKEN
       run: python bot.py
